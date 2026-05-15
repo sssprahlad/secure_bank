@@ -408,7 +408,7 @@ td button:last-child:hover {
 
 @media (max-width: 480px) {
     .popup-container {
-        width: 100%;
+        width: 90%;
         max-height: 100vh;
         border-radius: 0;
     }
