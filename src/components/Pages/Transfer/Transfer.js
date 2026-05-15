@@ -54,7 +54,7 @@ const Transfer = () => {
                 navigator("/accounts")
             }, 3000);
         }
-    }, [paymentSuccess]);
+    }, [paymentSuccess, navigator]);
     
 
     const handleTransferAmount = async () => {
