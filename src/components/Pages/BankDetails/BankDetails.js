@@ -97,13 +97,16 @@ const BankDetails = () => {
         }
       );
 
-      const data = await response.json();
-
-      console.log(data);
-
-      handleClosePopup();
-      fetchAllBankCustomers();
-
+      if (response.ok) {
+        console.log("User deleted successfully");
+        console.log(response);
+        // const data = await response.json();
+        // console.log(data);
+        handleClosePopup();
+        await fetchAllBankCustomers();
+      } else {
+        console.log("Failed to delete user");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -163,7 +166,9 @@ const BankDetails = () => {
       </div>
     ) : (
       loading ? (
-        <p className="loading">Loading...</p>
+       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+        <div className="spinner"></div>
+        </div>
       ) : (
         <p className="no-data">No data found</p>
       )
@@ -203,7 +208,7 @@ const BankDetails = () => {
                     <p><strong>Current Balance:</strong> {selectedUser?.balance}/-</p>
                   </div>
                   <div className="popup-actions">
-                    <button type="button" className="cancel-btn" onClick={handleClosePopup}>
+                    <button type="button" className="cancel-btn-secondary" onClick={handleClosePopup}>
                       Cancel
                     </button>
                     <button type="button" className="submit-btn" onClick={() => handleDepositAmount(selectedUser.id)}>

@@ -310,13 +310,14 @@ td button:last-child:hover {
 
 .popup-actions {
     display: flex;
+    align-items: center;
     gap: 1rem;
     justify-content: flex-end;
     margin-top: 1.5rem;
 }
 
 .cancel-btn {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem;
     border: 2px solid #e2e8f0;
     background: white;
     color: #4a5568;
@@ -378,7 +379,6 @@ td button:last-child:hover {
     color: #2d3748;
 }
 
-/* Responsive Popup */
 @media (max-width: 768px) {
     .popup-container {
         width: 95%;
@@ -521,4 +521,19 @@ td button:last-child:hover {
     background: #3182ce;
     transform: translateY(-1px);
     box-shadow: 0 2px 4px rgba(66, 153, 225, 0.3);
+}
+.cancel-btn-secondary {
+    padding: 0.5rem;
+    height:3rem;
+    border: 2px solid #e2e8f0;
+    background: white;
+    color: #4a5568;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.cancel-btn-secondary:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
 }
