@@ -1,7 +1,7 @@
 
 import { API_BASE_URL } from "../../../Constants/Constants";
 import "./BankDetails.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useCallback } from "react";
 
 const BankDetails = () => {
   const [user, setUser] = useState([]);
@@ -12,7 +12,7 @@ const BankDetails = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const fetchAllBankCustomers = async () => {
+  const fetchAllBankCustomers = useCallback(async () => {
     try {
       setLoading(true);
       const response = await fetch(
@@ -31,12 +31,12 @@ const BankDetails = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [searchQuery]);
 
 
   useEffect(() => {
     fetchAllBankCustomers();
-  }, [searchQuery]);
+  }, [fetchAllBankCustomers]);
 
   const handlePopup = (action, userData) => {
     setPopupAction(action);
@@ -52,12 +52,12 @@ const BankDetails = () => {
     setAmount('');
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(`${popupAction} ${amount} for user`, selectedUser);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log(`${popupAction} ${amount} for user`, selectedUser);
 
-    handleClosePopup();
-  };
+  //   handleClosePopup();
+  // };
 
   const handleDepositAmount = async (accountId) => {
     console.log(`Deposit ${amount} for user ${accountId}`);
