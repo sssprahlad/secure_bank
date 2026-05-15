@@ -81,7 +81,6 @@
     transform: translateY(0);
 }
 
-/* Tablet */
 @media (max-width: 768px) {
     .transfer {
         padding: 1.5rem;
@@ -97,7 +96,7 @@
     }
 }
 
-/* Mobile */
+
 @media (max-width: 480px) {
     .transfer {
         padding: 1rem;
@@ -131,4 +130,18 @@
         padding: 0.8rem;
         font-size: 0.95rem;
     }
+}
+
+.payment-success {
+    &::before {
+        content: "✅ ";
+    }
+    background: #ffffff;
+    border: 2px solid #48bb78;
+    color: #48bb78;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: center;
+    margin: 1rem;
 }
